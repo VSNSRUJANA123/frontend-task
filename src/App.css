@@ -1,0 +1,49 @@
+body {
+  background-color: #212529;
+  color: white;
+  font-family: "Roboto, 'Poppins', sans-serif";
+  box-sizing: border-box;
+}
+form {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+}
+input {
+  padding: 10px;
+  margin-right: 10px;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+}
+.table-div {
+  padding-left: 10px;
+}
+table {
+  text-align: center;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 10px;
+  border: 1px solid grey;
+}
+button {
+  cursor: pointer;
+}
+@media (max-width: 426px) {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    margin-bottom: 10px;
+  }
+  .table-div {
+    overflow-x: scroll;
+    width: 100%;
+  }
+  button {
+    margin-bottom: 10px;
+  }
+}
