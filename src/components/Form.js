@@ -15,6 +15,7 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
   const [edit, setEdit] = useState(false);
   const [data, setData] = useState([]);
+  const [error, setError] = useState(false);
   const handleUser = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
   };
@@ -138,6 +139,7 @@ const Form = () => {
       setData(response.data);
     } catch (err) {
       setLoading(false);
+      setError(true);
       console.log(err);
     }
   };
@@ -259,7 +261,7 @@ const Form = () => {
           />
         </div>
       )}
-      {!loading && (
+      {!loading && !error && (
         <div className="table-div">
           <table style={{ fontFamily: " Poppins, sans-serif" }}>
             <thead>
@@ -312,6 +314,11 @@ const Form = () => {
               })}
             </tbody>
           </table>
+        </div>
+      )}
+      {error && (
+        <div style={{ color: "#dc3545" }}>
+          <h1>Failed to fetch data</h1>
         </div>
       )}
       <ToastContainer />
